@@ -1,9 +1,12 @@
+import { MainLayout } from './layouts';
+import { AppForm } from './components';
+
 function App() {
   return (
-    <>
-      <h2 className="text-3xl font-bold underline">Hello world!</h2>
-    </>
-  )
+    <MainLayout>
+      <AppForm />
+    </MainLayout>
+  );
 }
 
-export default App
+export default App;
