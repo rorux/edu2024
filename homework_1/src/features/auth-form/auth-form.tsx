@@ -1,15 +1,18 @@
+import { useState } from 'react';
 import * as Yup from 'yup';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
-import { AppButton, AppInput } from '@components';
+import { AppButton, AppInput, AppLoader } from '@components';
 import { AuthFormValidationSchema } from './validation-schema.ts';
 import { PasswordInput } from './password-input.tsx';
 import { TAuthForm } from './types.ts';
+import { sendAuthForm } from './auth-slice.ts';
 
 const FORM_TITLE = 'Авторизация';
 
 export const AuthForm = (): React.ReactElement => {
+  const [loading, setLoading] = useState(false);
   const { handleSubmit, control, formState, reset } = useForm<TAuthForm>({
     resolver: yupResolver(AuthFormValidationSchema(Yup)),
     defaultValues: {
@@ -19,9 +22,19 @@ export const AuthForm = (): React.ReactElement => {
     mode: 'onChange',
   });
 
+  const submitButtonLabel = loading ? 'Отправка данных...' : 'Отправить';
+
   const onSubmit: SubmitHandler<TAuthForm> = async values => {
-    console.log(values);
-    reset();
+    try {
+      setLoading(true);
+      const response = await sendAuthForm(values);
+      if (response === 'ОК') alert('Вы успешно авторизовались!');
+      reset();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -53,11 +66,10 @@ export const AuthForm = (): React.ReactElement => {
               <PasswordInput onChange={onChange} value={value} error={error?.message} />
             )}
           />
-          <AppButton
-            label="Отправить"
-            type="submit"
-            disabled={!formState.isDirty || !formState.isValid}
-          />
+          <AppButton type="submit" disabled={!formState.isDirty || !formState.isValid || loading}>
+            {loading && <AppLoader />}
+            <span className="ml-2">{submitButtonLabel}</span>
+          </AppButton>
         </form>
       </div>
     </>

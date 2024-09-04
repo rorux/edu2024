@@ -25,6 +25,7 @@
       "@components": ["components"],
       "@layouts": ["layouts"],
       "@features": ["features"],
+      "@api": ["api"]
     }
   },
   "include": ["src"]
