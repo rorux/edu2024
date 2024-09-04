@@ -1,6 +1,4 @@
-type AppButtonProps = {
-  label: string;
-};
+import { AppButtonProps } from './types.ts';
 
 export const AppButton = ({ label }: AppButtonProps): React.ReactElement => {
   return (

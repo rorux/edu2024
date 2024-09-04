@@ -1,10 +1,10 @@
-import { MainLayout } from './layouts';
-import { AppForm } from './components';
+import { MainLayout } from '@layouts';
+import { AuthForm } from '@features';
 
 function App() {
   return (
     <MainLayout>
-      <AppForm />
+      <AuthForm />
     </MainLayout>
   );
 }

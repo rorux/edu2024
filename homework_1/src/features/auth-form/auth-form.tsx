@@ -1,10 +1,9 @@
 import { EnvelopeIcon, LockClosedIcon } from '@heroicons/react/24/outline';
-import { AppInput } from '../app-input';
-import { AppButton } from '../app-button';
+import { AppButton, AppInput } from '@components';
 
 const FORM_TITLE = 'Авторизация';
 
-export const AppForm = (): React.ReactElement => {
+export const AuthForm = (): React.ReactElement => {
   return (
     <>
       <div className="mx-auto max-w-md">

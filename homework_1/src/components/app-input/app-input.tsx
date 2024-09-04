@@ -1,9 +1,4 @@
-type AppInputProps = {
-  id: string;
-  type: string;
-  label: string;
-  icon: JSX.Element;
-};
+import { AppInputProps } from './types.ts';
 
 export const AppInput = ({ id, type, label, icon }: AppInputProps): React.ReactElement => {
   return (
@@ -17,7 +12,7 @@ export const AppInput = ({ id, type, label, icon }: AppInputProps): React.ReactE
           type={type}
           id={id}
           name={id}
-          className="w-full rounded-md p-3 pl-10 text-md border border-gray-100 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-300"
+          className="w-full rounded-md p-3 pl-10 text-md border border-gray-150 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
         />
       </div>
     </div>
