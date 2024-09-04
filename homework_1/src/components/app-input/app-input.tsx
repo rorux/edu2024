@@ -1,6 +1,13 @@
 import { AppInputProps } from './types.ts';
 
-export const AppInput = ({ id, type, label, icon }: AppInputProps): React.ReactElement => {
+export const AppInput = ({
+  id,
+  type,
+  label,
+  icon,
+  value,
+  onChange,
+}: AppInputProps): React.ReactElement => {
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
@@ -12,6 +19,8 @@ export const AppInput = ({ id, type, label, icon }: AppInputProps): React.ReactE
           type={type}
           id={id}
           name={id}
+          value={value}
+          onChange={event => onChange?.(event)}
           className="w-full rounded-md p-3 pl-10 text-md border border-gray-150 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
         />
       </div>
