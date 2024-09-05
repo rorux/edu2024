@@ -25,7 +25,8 @@
       "@components": ["components"],
       "@layouts": ["layouts"],
       "@features": ["features"],
-      "@api": ["api"]
+      "@api": ["api"],
+      "@pages": ["pages"]
     }
   },
   "include": ["src"]

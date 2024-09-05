@@ -1,11 +1,11 @@
-import { MainLayout } from '@layouts';
-import { AuthForm } from '@features';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './router.tsx';
 
 function App() {
   return (
-    <MainLayout>
-      <AuthForm />
-    </MainLayout>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
