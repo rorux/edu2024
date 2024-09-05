@@ -32,7 +32,7 @@ export const AuthForm = (): React.ReactElement => {
       if (response === 'ОК') {
         reset();
         localStorage.setItem('isAuthorized', 'true');
-        navigate('/main');
+        navigate('/');
       }
     } catch (error) {
       console.log(error);
@@ -69,6 +69,7 @@ export const AuthForm = (): React.ReactElement => {
         <AppButton
           type="submit"
           variant="info"
+          size="medium"
           loading={loading}
           disabled={!formState.isDirty || !formState.isValid || loading}
         >

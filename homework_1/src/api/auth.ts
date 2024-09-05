@@ -5,5 +5,5 @@ export const logIn = (payload: TAuthForm): Promise<string> =>
     setTimeout(() => {
       console.log(payload);
       resolve('ОК');
-    }, 2000);
+    }, 1500);
   });
