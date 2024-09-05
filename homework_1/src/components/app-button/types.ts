@@ -1,6 +1,6 @@
+import { ComponentPropsWithoutRef } from 'react';
+
 export type AppButtonProps = {
-  label: string;
-  type: 'button' | 'reset' | 'submit';
-  onClick?: () => void;
-  disabled?: boolean;
-};
+  variant: 'info' | 'success';
+  loading?: boolean;
+} & ComponentPropsWithoutRef<'button'>;

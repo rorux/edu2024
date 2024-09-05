@@ -68,6 +68,7 @@ export const AuthForm = (): React.ReactElement => {
         />
         <AppButton
           type="submit"
+          variant="info"
           loading={loading}
           disabled={!formState.isDirty || !formState.isValid || loading}
         >
